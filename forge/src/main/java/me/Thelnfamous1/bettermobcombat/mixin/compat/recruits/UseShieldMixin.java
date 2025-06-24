@@ -16,7 +16,8 @@ public class UseShieldMixin {
 
     @Shadow @Final public PathfinderMob entity;
 
-    @Inject(method = "canRaiseShield", at = @At(value = "RETURN", ordinal = 1), cancellable = true)
+    @Inject(method = "canRaiseShield", at = @At("RETURN"), cancellable = true)
+
     private void provideAlternateDistanceCheck(CallbackInfoReturnable<Boolean> cir){
         MobCombatHelper.onHoldingBetterCombatWeapon(
                 this.entity,
